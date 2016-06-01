@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class SystemTool {
-    public void killByPid(String str) {
+    public static void killByPid(String str) {
         final String[] Array = {"ntsd.exe", "-c", "q", "-p", str};
         int i = 0;
         try {
