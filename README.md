@@ -1,5 +1,5 @@
 # awesome-codes
 
-some useful codes to mark except java.
+some useful codes except java.
 
-Java useful code is in https://github.com/superhj1987/awesome-training-4j
+Java useful codes is in https://github.com/superhj1987/awesome-training-4j
