@@ -1,3 +1,5 @@
+--限流lua脚本，推荐使用Nginx自带的ngx_http_limit_conn_module和ngx_http_limit_req_module
+
 ngx.header.content_type = "text/html; charset=utf-8";
 local method=ngx.req.get_method()
 local curl=ngx.md5(ngx.var.request_uri);
@@ -38,7 +40,7 @@ end
 
 if ngx.re.match(request_uri_without_args,"/(.*)") then
    local url_args = ngx.req.get_uri_args()
-   if limit_url_check(curl,100,32000) then
+   if limit_url_check(curl,100,32000) then --这里是限制某个接口的访问频率，如果写死那么则是整个服务限流，如果是ip根据ip限流
         ngx.exit(ngx.HTTP_FORBIDDEN)
         return
     end
