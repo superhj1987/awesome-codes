@@ -1,5 +1,7 @@
 --限流lua脚本，推荐使用Nginx自带的ngx_http_limit_conn_module和ngx_http_limit_req_module
 
+-- lua_shared_dict url_limit 1m; //这里需要在nginx.conf中配置：共享全局变量，在所有worker间共享
+
 ngx.header.content_type = "text/html; charset=utf-8";
 local method=ngx.req.get_method()
 local curl=ngx.md5(ngx.var.request_uri);
